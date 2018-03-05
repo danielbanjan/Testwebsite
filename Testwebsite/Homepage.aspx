@@ -10,15 +10,11 @@
     <form id="form1" runat="server">
         <div style="height: 706px">
             <div style="width: 100%; height: 25%; overflow: scroll">
-            <asp:GridView ID="GridView1" runat="server" AllowSorting="True"   AutoGenerateEditButton="True" AutoGenerateColumns="False" DataSourceID="ARdatasource">
-                <Columns>
-                    <asp:BoundField DataField="geo1name" HeaderText="geo1name" SortExpression="geo1name" />
-                    <asp:BoundField DataField="geo2name" HeaderText="geo2name" SortExpression="geo2name" />
-                    <asp:BoundField DataField="geo3name" HeaderText="geo3name" SortExpression="geo3name" />
-                </Columns>
+                <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateEditButton="True">
+                
             </asp:GridView>
             </div>
-            <asp:DropDownList ID="Countries" runat="server">
+            <asp:DropDownList ID="Countries" runat="server" OnSelectedIndexChanged="Countries_SelectedIndexChanged">
             <asp:ListItem Enabled="true" Text="Select Country" Value="-1"></asp:ListItem>
             <asp:ListItem Text="Argentina" Value="AR"></asp:ListItem>
             <asp:ListItem Text="Australia" Value="AU"></asp:ListItem>
@@ -45,8 +41,10 @@
             <asp:ListItem Text="UK" Value="UK"></asp:ListItem>
             <asp:ListItem Text="Vietnam" Value="VN"></asp:ListItem>
             </asp:DropDownList>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><input id="Button1" type="button" value="button" /><asp:SqlDataSource ID="ARdatasource" runat="server" ConnectionString="<%$ ConnectionStrings:ArgentinaConnectionString %>" SelectCommand="SELECT [geo1name], [geo2name], [geo3name] FROM [Config_geo_portalstructure]"></asp:SqlDataSource>
-    &nbsp;</div>
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:Button runat="server" ID="btn" Text="Show" OnClick="Button1_Click" />
+        <div id="div1" runat = "server" ></div>
+            &nbsp;</div>
     </form>
 </body>
 </html>
