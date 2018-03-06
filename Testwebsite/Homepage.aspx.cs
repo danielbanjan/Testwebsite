@@ -17,11 +17,18 @@ public partial class Homepage : System.Web.UI.Page
         GridView1.Visible = false;
     }
 
+    public void Tab2_Click(object sender, EventArgs e)
+    {
+        
+
+    }
+
     public void Button1_Click(object sender, EventArgs e)
     {
-        GridView1.Visible = true;
-        //string connStr = ConfigurationManager.ConnectionStrings["ArgentinaConnectionString"].ConnectionString;
-        
+        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+        CheckBoxList1.Items.Add(new ListItem("Argentina", "Argentina"));
+        CheckBoxList1.Items.Add(new ListItem("Australia", "Australia"));
+        CheckBoxList1.Items.Add(new ListItem("Items 3", "Items 3"));
     }
 
     protected void Countries_SelectedIndexChanged(object sender, EventArgs e)
